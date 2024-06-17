@@ -1,0 +1,22 @@
+{% extends 'progruz/doc.html' %}
+
+{% block title %}Заказы{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Актуальные заказы</h1>
+        {% if order %}
+            {% for el in order %}
+            <div class="alert alert-warning">
+                <h3>{{ el.title }}</h3>
+                <p>{{ el.anons }}</p>
+                <a href="{% url 'order-detail' el.id %}" class="btn btn-outline-success">Откликнуться</a>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>У вас нет записей</p>
+        {% endif %}
+
+        {# Comments #}
+    </div>
+{% endblock %}
