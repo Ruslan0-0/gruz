@@ -121,3 +121,17 @@ form {
   text-align: center;
   color: #fff;
 }
+
+.roww {
+
+    color: #196F3D;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 15px;
+}
+
+.form-group {
+    color: #196F3D;
+}
