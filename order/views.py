@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect
 from .models import Article
 from .forms import ArticleForm
 from django.views.generic import DetailView, UpdateView, DeleteView
-
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login, authenticate
 
 
 def order_home(request):
@@ -61,3 +63,9 @@ def index(request):
         'index.html',
         context={'num_orders': num_orders, 'num_visits': num_visits}
     )
+
+
+
+
+
+
