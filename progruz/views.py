@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate
 from django.http import JsonResponse
+from django.conf import settings
 
 
 def index(request):
@@ -41,11 +42,8 @@ def price(request):
         hours = int(request.POST.get('hours', 0))
         loaders = int(request.POST.get('loaders', 0))
 
-        truck_price = 80
-        loader_price = 11
-
-        truck_cost = hours * truck_price
-        loaders_cost = loaders * loader_price
+        truck_cost = hours * settings.TRUCK_PRICE
+        loaders_cost = loaders * settings.LOADER_PRICE
         total_cost = truck_cost + loaders_cost
 
         discount_amount = 0
@@ -63,6 +61,6 @@ def price(request):
         })
 
     return render(request, 'progruz/price.html', {
-        'truck_price': 80,
-        'loader_price': 11
+        'truck_price': settings.TRUCK_PRICE,
+        'loader_price': settings.LOADER_PRICE
     })
