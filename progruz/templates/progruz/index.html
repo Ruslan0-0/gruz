@@ -6,9 +6,33 @@
     <div class="features">
         <h1>{{ title }}</h1>
         <p>Spasibo</p>
-        <button class="btn btn-warning">На страницу про нас</button>
 
-        { for el in values %}
-
+        {% for el in values %}
+          {# Your dynamic content here #}
+        {% endfor %}
     </div>
+
+    <div class="features">
+        <h3>Dynamic content</h3>
+
+        <div class="dynamic-content">
+            <p>The library has the following record counts:</p>
+            <ul>
+                <li><strong>Orders:</strong> {{ num_orders }}</li>
+            </ul>
+
+            <p>
+                You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{%
+                else %} times{% endif %}.
+            </p>
+        </div>
+
+        <button class="btn btn-warning">На страницу про нас</button>
+    </div>
+
+    {% if form %}
+    <div class="position-fixed upper-0 end-0 m-4">
+        <a href="{% url 'register' %}" class="btn btn-primary">Register</a>
+    </div>
+    {% endif %}
 {% endblock %}

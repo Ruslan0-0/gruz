@@ -2,6 +2,7 @@
 import os
 import environ
 from pathlib import Path
+from decouple import config
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,7 +44,7 @@ ROOT_URLCONF = 'gruz.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -82,3 +83,7 @@ STATICFILES_DIRS = [
 # Default primary key field type
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+TRUCK_PRICE = config('TRUCK_PRICE', default=80, cast=int)
+LOADER_PRICE = config('LOADER_PRICE', default=11, cast=int)
