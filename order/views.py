@@ -46,3 +46,18 @@ def create(request):
         'error': error
     }
     return render(request, 'order/create.html', data)
+
+
+def index(request):
+
+    num_authors=Article.objects.count()
+
+    num_visits=request.session.get('num_visits', 0)
+    request.session['num_visits'] = num_visits+1
+
+
+    return render(
+        request,
+        'index.html',
+        context={'num_orders': num_orders, 'num_visits': num_visits}
+    )

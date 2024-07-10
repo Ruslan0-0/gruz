@@ -6,9 +6,30 @@
     <div class="features">
         <h1>{{ title }}</h1>
         <p>Spasibo</p>
-        <button class="btn btn-warning">На страницу про нас</button>
+
 
         { for el in values %}
 
     </div>
+
+<div class="features">
+<h3>Dynamic content</h3>
+
+<div class="dynamic-content">
+  <p>The library has the following record counts:</p>
+  <ul>
+    <li><strong>Orders:</strong> {{ num_orders }}</li>
+  </ul>
+
+  <p>
+    You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{%
+    else %} times{% endif %}.
+  </p>
+</div>
+
+
+<button class="btn btn-warning">На страницу про нас</button>
+
+
+
 {% endblock %}
