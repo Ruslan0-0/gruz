@@ -2,6 +2,7 @@
 import os
 import environ
 from pathlib import Path
+from decouple import config
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -84,3 +85,5 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+TRUCK_PRICE = config('TRUCK_PRICE', default=80, cast=int)
+LOADER_PRICE = config('LOADER_PRICE', default=11, cast=int)
